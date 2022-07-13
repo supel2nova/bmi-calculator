@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="BMI.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/Untitled-1.png" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">หน้าแรก</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">ดัชนีมวลร่างกาย</a>
+          </li>
+          <li class="nav-item">
+            <a href="BMR.html" class="nav-link">การเผาผลาญ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="text-dark text-center bg-warning">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-xl-12 mt-1 mx-auto">
+          <div class="col-12 col-md-8 col-lg-6  mb-2 mb-md-0 mt-2 mx-auto">
+            <h1 class="mb-4">Body Mass Index</h1>
+          </div>
+          <div class="col-12 col-md-8 col-lg-6  mb-2 mb-md-0 mt-4 mx-auto">
+            <h3>น้ำหนัก (กิโลกรัม)</h3>
+            <input id="inputMass" type="number" class="form-control form-control-lg"
+              placeholder="กรุณาใส่น้ำหนักของคุณ...">
+          </div>
+          <div class="col-12 col-md-8 col-lg-6  mb-2 mb-md-0 mt-4 mx-auto">
+            <h3>ส่วนสูง (เซนติเมตร)</h3>
+            <input id="inputHeight" type="number" class="form-control form-control-lg"
+              placeholder="กรุณาใส่ส่วนสูงของคุณ...">
+          </div>
+          <div class="col-12 col-md-8 col-lg-6 mb-md-0 mt-4 mx-auto">
+            <button type="button" class="button01 btn btn-dark btn-lg mb-2" onclick="calBMI()">คำนวณ</button>
+          </div>
+          <div class="col-12 col-md-8 col-lg-6  mb-2 mb-md-0 mt-3 mx-auto">
+            <div class="textResult bg-dark text-light pt-4 mx-auto" id="result">
+            </div>
+          </div>
+          <div class="col-3 col-md-3 col-lg-3 col-xl-3 mt-3 mx-auto">
+            <div class="col-lg-5 mx-auto">
+              <img class="img-thumbnail position-absolute showimg" name="imgShow" id="imgBMI" src="img/BMI0.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <footer>
+    <div class="container bg-light pt-3 pb-2 ">
+      <h2>วิธีคำนวณดัชนีมวลกาย Body Mass Index (BMI)</h2>
+      <p>สูตรคำนวณดัชนีมวลกายคือ [ดัชนีมวลกาย= น้ำหนักตัว / ความสูง ยกกำลังสอง]</p>
+      <ul>
+        <li>40 หรือมากกว่านี้ : โรคอ้วนขั้นสูงสุด</li>
+        <li>35.0 - 39.9: โรคอ้วนระดับ2 คุณเสี่ยงต่อการเกิดโรคที่มากับความอ้วน
+          หากคุณมีเส้นรอบเอวมากกว่าเกณฑ์ปกติคุณจะเสี่ยงต่อการเกิดโรคสูง คุณต้องควบคุมอาหาร และออกกำลังกายอย่างจริงจัง
+        </li>
+        <li>28.5 - 34.9: โรคอ้วนระดับ1 และหากคุณมีเส้นรอบเอวมากกว่า 90 ซม.(ชาย) 80 ซม.(หญิง) คุณจะมีโอกาศเกิดโรคความดัน
+          เบาหวานสูง จำเป็นต้องควบคุมอาหาร และออกกำลังกาย</li>
+        <li>23.5 - 28.4: น้ำหนักเกิน
+          หากคุณมีกรรมพันธ์เป็นโรคเบาหวานหรือไขมันในเลือดสูงต้องพยายามลดน้ำหนักให้ดัชนีมวลกายต่ำกว่า 23</li>
+        <li>18.5 - 23.4: น้ำหนักปกติ และมีปริมาณไขมันอยู่ในเกณฑ์ปกติ มักจะไม่ค่อยมีโรคร้าย อุบัติการณ์ของโรคเบาหวาน
+          ความดันโลหิตสูงต่ำกว่าผู้ที่อ้วนกว่านี้</li>
+        <li>น้อยกว่า 18.5: น้ำหนักน้อยเกินไป ซึ่งอาจจะเกิดจากนักกีฬาที่ออกกำลังกายมาก และได้รับสารอาหารไม่เพียงพอ
+          วิธีแก้ไขต้องรับประทานอาหารที่มีคุณภาพ และมีปริมาณพลังงานเพียงพอ และออกกำลังกายอย่างเหมาะสม</li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="App.js"> </script>
+  <script src="js/bootstrap.min.js"></script>
+
+</body>
